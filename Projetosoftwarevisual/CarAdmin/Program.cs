@@ -1,20 +1,27 @@
 using System;
+using Microsoft.EntityFrameworkCore;
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+
 
 namespace Trabalho
 {
 	class Usuario
     {
     	public int id { get; set; }
-		public string? nome { get; set; }
+		public string? cliente { get; set; }
     	public string? email { get; set; }
-		public string? carro { get; set; }
+        public int? telefone { get; set; }
+        public string? dataempr { get; set; }
+        public string? datadev { get; set; }
+        public string? carro { get; set; }  
+        public string? vendedor { get; set; }
 		
+
     }
 	
+
 	class BaseUsuarios : DbContext
 	{
 		public BaseUsuarios(DbContextOptions options) : base(options)
@@ -52,14 +59,19 @@ namespace Trabalho
 				baseUsuarios.SaveChanges();
 				return "usuario adicionado";
 			});
+
 			
 			//atualizar usuario
 			app.MapPost("/atualizar/{id}", (BaseUsuarios baseUsuarios, Usuario usuarioAtualizado, int id) =>
 			{
 				var usuario = baseUsuarios.Usuarios.Find(id);
-				usuario.nome = usuarioAtualizado.nome;
+				usuario.cliente = usuarioAtualizado.cliente;
 				usuario.email = usuarioAtualizado.email;
-				usuario.data = usuarioAtualizado.data;
+                usuario.telefone = usuarioAtualizado.telefone;
+                usuario.dataempr = usuarioAtualizado.dataempr;
+                usuario.datadev = usuarioAtualizado.datadev;
+                usuario.carro = usuarioAtualizado.carro;
+                usuario.vendedor = usuarioAtualizado.vendedor;
 				baseUsuarios.SaveChanges();
 				return "usuario atualizado";
 			});

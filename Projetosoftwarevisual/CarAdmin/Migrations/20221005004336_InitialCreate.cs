@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace CarAdmin.Migrations
+namespace caradm.Migrations
 {
     public partial class InitialCreate : Migration
     {
@@ -14,8 +14,13 @@ namespace CarAdmin.Migrations
                 {
                     id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    nome = table.Column<string>(type: "TEXT", nullable: true),
-                    email = table.Column<string>(type: "TEXT", nullable: true)
+                    cliente = table.Column<string>(type: "TEXT", nullable: true),
+                    email = table.Column<string>(type: "TEXT", nullable: true),
+                    telefone = table.Column<int>(type: "INTEGER", nullable: true),
+                    dataempr = table.Column<string>(type: "TEXT", nullable: true),
+                    datadev = table.Column<string>(type: "TEXT", nullable: true),
+                    carro = table.Column<string>(type: "TEXT", nullable: true),
+                    vendedor = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

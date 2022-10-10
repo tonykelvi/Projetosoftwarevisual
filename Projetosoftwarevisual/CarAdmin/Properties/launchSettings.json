@@ -4,17 +4,17 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:39707",
+      "applicationUrl": "http://localhost:55573",
       "sslPort": 44318
     }
   },
   "profiles": {
-    "CarAdmin": {
+    "caradm": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7017;http://localhost:5074",
+      "applicationUrl": "https://localhost:7055;http://localhost:5100",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "CarAdmin/1.0.0": {
+      "caradm/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "6.0.0",
           "Microsoft.EntityFrameworkCore.InMemory": "6.0.0",
@@ -14,7 +14,7 @@
           "Swashbuckle.AspNetCore": "6.2.3"
         },
         "runtime": {
-          "CarAdmin.dll": {}
+          "caradm.dll": {}
         }
       },
       "Humanizer.Core/2.8.26": {
@@ -366,7 +366,7 @@
     }
   },
   "libraries": {
-    "CarAdmin/1.0.0": {
+    "caradm/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
