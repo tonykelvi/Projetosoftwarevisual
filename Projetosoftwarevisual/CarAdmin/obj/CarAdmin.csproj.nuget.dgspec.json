@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tonya\\visual\\caradm\\caradm.csproj": {}
+    "C:\\Users\\tonya\\OneDrive\\Área de Trabalho\\SoftVis\\CarAdmin\\CarAdmin.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tonya\\visual\\caradm\\caradm.csproj": {
+    "C:\\Users\\tonya\\OneDrive\\Área de Trabalho\\SoftVis\\CarAdmin\\CarAdmin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tonya\\visual\\caradm\\caradm.csproj",
-        "projectName": "caradm",
-        "projectPath": "C:\\Users\\tonya\\visual\\caradm\\caradm.csproj",
+        "projectUniqueName": "C:\\Users\\tonya\\OneDrive\\Área de Trabalho\\SoftVis\\CarAdmin\\CarAdmin.csproj",
+        "projectName": "CarAdmin",
+        "projectPath": "C:\\Users\\tonya\\OneDrive\\Área de Trabalho\\SoftVis\\CarAdmin\\CarAdmin.csproj",
         "packagesPath": "C:\\Users\\tonya\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tonya\\visual\\caradm\\obj\\",
+        "outputPath": "C:\\Users\\tonya\\OneDrive\\Área de Trabalho\\SoftVis\\CarAdmin\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tonya\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -41,10 +41,6 @@
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
-              "target": "Package",
-              "version": "[6.0.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
               "version": "[6.0.0, )"
             },

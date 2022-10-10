@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uZFR/BbupkHASkcdz6z7FtWH9oTQJjVdlWX8Ju8lpf81KO6JYPhbm09g0HXrfyN1r9B11hodPNm02LDUbv8tsg==",
+  "dgSpecHash": "f5zkJJR0vX49yu/Ix0Gse525nKsGKSFVgtB5/l3KEHEx/GUnlnQdkSU2WTsaufBSvgHpa42myUgMRFId1hO8jQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tonya\\visual\\caradm\\caradm.csproj",
+  "projectFilePath": "C:\\Users\\tonya\\OneDrive\\Área de Trabalho\\SoftVis\\CarAdmin\\CarAdmin.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tonya\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\tonya\\.nuget\\packages\\microsoft.data.sqlite.core\\6.0.0\\microsoft.data.sqlite.core.6.0.0.nupkg.sha512",
@@ -10,7 +10,6 @@
     "C:\\Users\\tonya\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.0\\microsoft.entityframeworkcore.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\tonya\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.0\\microsoft.entityframeworkcore.analyzers.6.0.0.nupkg.sha512",
     "C:\\Users\\tonya\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.0\\microsoft.entityframeworkcore.design.6.0.0.nupkg.sha512",
-    "C:\\Users\\tonya\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\6.0.0\\microsoft.entityframeworkcore.inmemory.6.0.0.nupkg.sha512",
     "C:\\Users\\tonya\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.0\\microsoft.entityframeworkcore.relational.6.0.0.nupkg.sha512",
     "C:\\Users\\tonya\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\6.0.0\\microsoft.entityframeworkcore.sqlite.6.0.0.nupkg.sha512",
     "C:\\Users\\tonya\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\6.0.0\\microsoft.entityframeworkcore.sqlite.core.6.0.0.nupkg.sha512",
