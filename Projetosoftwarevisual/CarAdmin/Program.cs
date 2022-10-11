@@ -1,13 +1,3 @@
-//RODAR ESSES COMANDOS NA PRIMEIRA VEZ
-//dotnet new webapi -minimal -o NomeDoProjeto
-//cd NomeDoProjeto
-//dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 6.0
-//dotnet add package Microsoft.EntityFrameworkCore.Design --version 6.0
-//dotnet tool install --global dotnet-ef
-//dotnet ef migrations add InitialCreate
-//RODAR ESSE COMANDO SEMPRE QUE MEXER NAS CLASSES RELATIVAS A BASE DE DADOS
-//dotnet ef database update
-
 using System;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -16,28 +6,24 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Trabalho
 {
-    [Keyless]
 	class Cliente
     {
-    	public int idCliente { get; set; }
+    	public int id { get; set; }
 		public string? nome { get; set; }
 		public int contato { get; set; }
     	public string? email { get; set; }        
     }
-    [Keyless]
 	class Carro
     {
-		public int idCarro { get; set; }
+		public int id { get; set; }
         public string? modelo { get; set; }
 		public string? placa { get; set; }
     }
-    [Keyless]
 	class Vendedor
 	{
-		public int idVendedor { get; set; }
+		public int id { get; set; }
 		public string? nomeFuncionario { get; set; }	
     }
-    [Keyless]
 	class Emprestimo
 	{
         public int id { get; set; }
@@ -55,9 +41,9 @@ namespace Trabalho
 		}
 		
 		public DbSet<Cliente> Clientes { get; set; } = null!;
-        public DbSet<Carro> Carro { get; set; } = null!;
-        public DbSet<Vendedor> Vendedor { get; set; } = null!;
-        public DbSet<Emprestimo> Emprestimo { get; set; } = null!;
+        public DbSet<Carro> Carros { get; set; } = null!;
+        public DbSet<Vendedor> Vendedores { get; set; } = null!;
+        public DbSet<Emprestimo> Emprestimos { get; set; } = null!;
 	}
 	
 	class Program
@@ -71,74 +57,74 @@ namespace Trabalho
 			
 			var app = builder.Build();
 			
-			//LISTAR
-			app.MapGet("/listar/Clientes", (BaseRentCar BaseRentCar) => {
-				return BaseRentCar.Clientes.ToList();
-			});
-			
-			app.MapGet("/listar/Clientes/{id}", (BaseRentCar BaseRentCar, int id) => {
-				return BaseRentCar.Clientes.Find(id);
-			});
-			app.MapGet("/listar/carros", (BaseRentCar BaseRentCar) => {
-				return BaseRentCar.Carro.ToList();
-			});
-			
-			app.MapGet("/listar/carros/{id}", (BaseRentCar BaseRentCar, int id) => {
-				return BaseRentCar.Carro.Find(id);
-			});
-			app.MapGet("/listar/vendedor", (BaseRentCar BaseRentCar) => {
-				return BaseRentCar.Vendedor.ToList();
-			});
-			
-			app.MapGet("/listar/vendedor/{id}", (BaseRentCar BaseRentCar, int id) => {
-				return BaseRentCar.Vendedor.Find(id);
-			});
-
-
-			//CADASTRAR
-			app.MapPost("/cadastrar/cliente", (BaseRentCar BaseRentCar, Cliente Cliente) =>
+            //CADASTRAR
+			app.MapPost("/cadastrar/cliente", (BaseRentCar BaseRentCar, Cliente cliente) =>
 			{
-				BaseRentCar.Clientes.Add(Cliente);
+				BaseRentCar.Clientes.Add(cliente);
 				BaseRentCar.SaveChanges();
 				return "Novo cliente adicionado com sucesso";
 			});
 
-			app.MapPost("/cadastrar/carro", (BaseRentCar BaseRentCar, Carro Carro) =>
+			app.MapPost("/cadastrar/carro", (BaseRentCar BaseRentCar, Carro carro) =>
 			{
-				BaseRentCar.Carro.Add(Carro);
+				BaseRentCar.Carros.Add(carro);
 				BaseRentCar.SaveChanges();
 				return "Novo Carro adicionado com sucesso";
 			});
-			app.MapPost("/cadastrar/vendedor", (BaseRentCar BaseRentCar, Vendedor Vendedor) =>
+			app.MapPost("/cadastrar/vendedor", (BaseRentCar BaseRentCar, Vendedor vendedor) =>
 			{
-				BaseRentCar.Vendedor.Add(Vendedor);
+				BaseRentCar.Vendedores.Add(vendedor);
 				BaseRentCar.SaveChanges();
 				return "Novo Vendedor adicionado com sucesso";
 			});
 
+
+			//LISTAR
+			app.MapGet("/listar/cliente", (BaseRentCar BaseRentCar) => {
+				return BaseRentCar.Clientes.ToList();
+			});
 			
+			app.MapGet("/listar/cliente/{id}", (BaseRentCar BaseRentCar, int id) => {
+				return BaseRentCar.Clientes.Find(id);
+			});
+			app.MapGet("/listar/carros", (BaseRentCar BaseRentCar) => {
+				return BaseRentCar.Carros.ToList();
+			});
+			
+			app.MapGet("/listar/carros/{id}", (BaseRentCar BaseRentCar, int id) => {
+				return BaseRentCar.Carros.Find(id);
+			});
+			app.MapGet("/listar/vendedor", (BaseRentCar BaseRentCar) => {
+				return BaseRentCar.Vendedores.ToList();
+			});
+			
+			app.MapGet("/listar/vendedor/{id}", (BaseRentCar BaseRentCar, int id) => {
+				return BaseRentCar.Vendedores.Find(id);
+			});
+
+
 			//ATUALIZAR 
-			app.MapPost("/atualizar/cliente/{id}", (BaseRentCar BaseRentCar, Cliente ClienteAtualizado, int id) =>
+			app.MapPost("/atualizar/cliente/{id}", (BaseRentCar BaseRentCar, Cliente clienteAtualizado, int id) =>
 			{
-				var Cliente = BaseRentCar.Clientes.Find(id);
-				Cliente.nome = ClienteAtualizado.nome;
-				Cliente.email = ClienteAtualizado.email;
-                Cliente.contato = ClienteAtualizado.contato;
+				var cliente = BaseRentCar.Clientes.Find(id);
+				cliente.nome = clienteAtualizado.nome;
+				cliente.email = clienteAtualizado.email;
+                cliente.contato = clienteAtualizado.contato;
 				BaseRentCar.SaveChanges();
 				return "Cliente atualizado com sucesso";
 			});
-			app.MapPost("/atualizar/carro/{id}", (BaseRentCar BaseRentCar, Carro CarroAtualizado, int id) =>
+			app.MapPost("/atualizar/carro/{id}", (BaseRentCar BaseRentCar, Carro carroAtualizado, int id) =>
 			{
-				var Carro = BaseRentCar.Carro.Find(id);
-				Carro.modelo = CarroAtualizado.modelo;
-				Carro.placa = CarroAtualizado.placa;
+				var carro = BaseRentCar.Carros.Find(id);
+				carro.modelo = carroAtualizado.modelo;
+				carro.placa = carroAtualizado.placa;
 				BaseRentCar.SaveChanges();
 				return "Carro atualizado com sucesso";
 			});
-			app.MapPost("/atualizar/vendedor/{id}", (BaseRentCar BaseRentCar, Vendedor VendedorAtualizado, int id) =>
+			app.MapPost("/atualizar/vendedor/{id}", (BaseRentCar BaseRentCar, Vendedor vendedorAtualizado, int id) =>
 			{
-				var Vendedor = BaseRentCar.Vendedor.Find(id);
-				Vendedor.nomeFuncionario = VendedorAtualizado.nomeFuncionario;
+				var vendedor = BaseRentCar.Vendedores.Find(id);
+				vendedor.nomeFuncionario = vendedorAtualizado.nomeFuncionario;
 				BaseRentCar.SaveChanges();
 				return "Vendedor atualizado com sucesso";
 			});
@@ -147,22 +133,22 @@ namespace Trabalho
 			//DELETAR
 			app.MapPost("/deletar/cliente/{id}", (BaseRentCar BaseRentCar, int id) =>
 			{
-				var Cliente = BaseRentCar.Clientes.Find(id);
-				BaseRentCar.Remove(Cliente);
+				var cliente = BaseRentCar.Clientes.Find(id);
+				BaseRentCar.Remove(cliente);
 				BaseRentCar.SaveChanges();
 				return "Cliente excluido com sucesso";
 			});
 			app.MapPost("/deletar/carro{id}", (BaseRentCar BaseRentCar, int id) =>
 			{
-				var Carro = BaseRentCar.Carro.Find(id);
-				BaseRentCar.Remove(Carro);
+				var carro = BaseRentCar.Carros.Find(id);
+				BaseRentCar.Remove(carro);
 				BaseRentCar.SaveChanges();
 				return "Carro excluido com sucesso";
 			});
 			app.MapPost("/deletar/vendedor{id}", (BaseRentCar BaseRentCar, int id) =>
 			{
-				var Vendedor = BaseRentCar.Vendedor.Find(id);
-				BaseRentCar.Remove(Vendedor);
+				var vendedor = BaseRentCar.Vendedores.Find(id);
+				BaseRentCar.Remove(vendedor);
 				BaseRentCar.SaveChanges();
 				return "Vendedor excluido com sucesso";
 			});						
