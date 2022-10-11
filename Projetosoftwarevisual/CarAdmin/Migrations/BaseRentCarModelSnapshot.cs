@@ -18,7 +18,8 @@ namespace CarAdmin.Migrations
 
             modelBuilder.Entity("Trabalho.Carro", b =>
                 {
-                    b.Property<int>("idCarro")
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("modelo")
@@ -27,55 +28,43 @@ namespace CarAdmin.Migrations
                     b.Property<string>("placa")
                         .HasColumnType("TEXT");
 
-                    b.ToTable("Carro");
+                    b.HasKey("id");
+
+                    b.ToTable("Carros");
                 });
 
             modelBuilder.Entity("Trabalho.Cliente", b =>
                 {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("contato")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("email")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("idCliente")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("nome")
                         .HasColumnType("TEXT");
+
+                    b.HasKey("id");
 
                     b.ToTable("Clientes");
                 });
 
-            modelBuilder.Entity("Trabalho.Emprestimo", b =>
-                {
-                    b.Property<string>("datadev")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("dataempr")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("idCarro")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("idCliente")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("idVendedor")
-                        .HasColumnType("INTEGER");
-
-                    b.ToTable("Emprestimo");
-                });
-
             modelBuilder.Entity("Trabalho.Vendedor", b =>
                 {
-                    b.Property<int>("idVendedor")
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("nomeFuncionario")
                         .HasColumnType("TEXT");
 
-                    b.ToTable("Vendedor");
+                    b.HasKey("id");
+
+                    b.ToTable("Vendedores");
                 });
 #pragma warning restore 612, 618
         }

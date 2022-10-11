@@ -24,15 +24,15 @@ namespace Trabalho
 		public int id { get; set; }
 		public string? nomeFuncionario { get; set; }	
     }
-	class Emprestimo
-	{
-        public int id { get; set; }
-		public int idCliente { get; set; }
-		public int idCarro { get; set; }
-		public int idVendedor { get; set; }
-		public string? dataempr { get; set; }
-        public string? datadev { get; set; }  
-    }
+	// class Emprestimo
+	// {
+    //     public int id { get; set; }
+	// 	public int idCliente { get; set; }
+	// 	public int idCarro { get; set; }
+	// 	public int idVendedor { get; set; }
+	// 	public string? dataempr { get; set; }
+    //     public string? datadev { get; set; }  
+    // }
 		
 	class BaseRentCar : DbContext
 	{
@@ -43,7 +43,7 @@ namespace Trabalho
 		public DbSet<Cliente> Clientes { get; set; } = null!;
         public DbSet<Carro> Carros { get; set; } = null!;
         public DbSet<Vendedor> Vendedores { get; set; } = null!;
-        public DbSet<Emprestimo> Emprestimos { get; set; } = null!;
+        // public DbSet<Emprestimo> Emprestimos { get; set; } = null!;
 	}
 	
 	class Program
