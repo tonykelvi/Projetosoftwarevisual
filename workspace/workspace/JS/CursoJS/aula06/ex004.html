@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            font:  normal 20pt arial;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        
+        var nome = window.prompt ('Qual é seu nome?')
+        document.write(`Olá <strong>${nome}</strong>! Seu nome tem ${nome.length} letras<br>`) //Quantos caracteres a String tem
+        document.write(`Seu nome em letras maiusculas é ${nome.toUpperCase()}<br>`) // Letra caixa ALta
+        document.write(`Seu nome em letras minusculas é ${nome.toLowerCase()}`) //Letra caixa Baixa
+        //n1.toFixed(3) Quantidade de casas decimais
+        //n1.toFixed(2).replace ('.',',') Alterando o ponto pela virgula. /.//NÀO É NECESSARIO POIS A TRANSFORMAÇAO EM MOEDA COLOCA AS VIRGULAS.
+        //n1.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}) Mostra valor de moeda em real
+        //n1.toLocaleString('pt-BR', {style: 'currency', currency: 'USD'})
+        //n1.toLocaleString('pt-BR', {style: 'currency', currency: 'EUR'})
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treinando Operadores</title>
+    <style>
+        body{
+            font: normal 20pt Verdana;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Treinando os Operadores</h1>
+
+    <script>
+
+        document.write('Um aluno fez a prova do vestibular, diga se ele será aprovado para ingressar na faculdade, com base na sua nota e na idade<br>')
+
+        var idade = 15
+        var nota1 = 3.7
+        var nota2 = 8
+
+        var resultado = nota1 + nota2 /2
+
+        //Usando ternário
+        document.write(`A nota do aluno ${resultado} ele está: ${ resultado >= 6 ?'Aprovado' :'Reprovado'}<br>`) 
+
+        document.write(`Com idade de ${idade} anos, ele ${idade>=19 ?'poderá' :'não poderá'} ingressar na faculdade<br><br>`)
+
+
+        document.write('Uma escola precisa levar 895 alunos para um passeio, qual a quantidade de onibus precisa ser contratado para levar todos os alunos, levando em conta que cada onibus tem 50 assentos<br>')
+
+        var alunos = 895
+        var qtd_Por_Onibus = 50
+        var qtd_De_Onibus = alunos/qtd_Por_Onibus
+        var resultado2 = alunos % 2    
+
+        
+        if(resultado2 == 0)
+        {
+            resultado2 = Number.parseInt(qtd_De_Onibus)
+            document.write(`Quantidade de onibus deve ser ${resultado2}<br>`)
+
+        }
+        else if(resultado2 == 1)
+        {
+            resultado2 = Number.parseInt(resultado2 + qtd_De_Onibus)
+            document.write(`Quantidade de onibus deve ser ${resultado2}<br><br>`)
+
+        }
+
+        document.write('DIGA SE O FUNCIONARIO TEM DIREITO A PIS<br>')
+
+        var tempoCarteira = 3
+        var empregado = true
+
+        if(tempoCarteira>=5 && empregado != false){
+            document.write('FUNCIONARIO <strong>TEM</strong> DIREITO A RECEBER O PIS<br><br>')
+        }
+        else{
+            document.write('FUNCIONARIO <strong>NÃO</strong> TEM DIREITO A RECEBER O PIS<br><br>')
+        }
+
+        document.write('EXPONENCIAÇÃO DE 5<br>')
+
+        var x = 5
+        var resExp = x ** 2
+
+        document.write(`O valor de 5 ao quadrado é ${resExp}`)
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

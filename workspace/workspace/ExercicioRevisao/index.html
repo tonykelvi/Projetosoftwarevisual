@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Aula de Revisão</title>
+	</head>
+	<body>
+		<div>
+			<input id="nome" type="text"/>
+			<input id="nascimento" type="date"/>
+			<button onclick="submit()">Submit</button>
+		</div>
+		<div id="saida"></div>
+		<script>
+			function submit()
+			{
+				//pega nome inserido no input
+				let nome = document.getElementById('nome').value
+				
+				//verifica se algum nome foi digitado
+				if(nome.trim().length === 0)
+				{
+					alert('Por favor, insira seu nome...')
+					return
+				}
+				
+				//pega a string com a data de nascimento inserida no input
+				let nascimento = document.getElementById('nascimento').value
+				
+				//verifica se alguma data foi escolhida
+				if(nascimento.length === 0)
+				{
+					alert('Por favor, insira sua data de nascimento...')
+					return
+				}
+				
+				//constroi JSON para enviar ao servidor
+				let pessoa =
+				{
+					'nome': nome,
+					'nascimento': nascimento
+				}
+				
+				//realiza um POST no servidor
+				fetch("http://localhost:3000/Pessoa",
+				{
+					'method': 'POST',
+					'redirect': 'follow',
+					'headers':
+					{
+						'Content-Type': 'application/json',
+						'Accept': 'application/json'
+					},
+					'body': JSON.stringify(pessoa)
+				})
+				//extrai o JSON da resposta
+				.then(resposta => resposta.json())
+				//o JSON da pessoa retornado pelo servidor cai aqui
+				.then(pessoa =>
+				{
+					//TAREFA 1: CALCULAR A IDADE DA PESSOA
+					
+					//constroi data com a string de nascimento da pessoa
+					let nascimento = new Date(pessoa.nascimento)
+					
+					//pegamos data atual
+					let hoje = new Date()
+					
+					//checa quantos anos passaram desde que a pessoa nasceu
+					let idade = hoje.getFullYear() - nascimento.getFullYear()
+					
+					//verifica se a pessoa ja fez aniversario esse ano (caso nao, tem que subtrair um do ano)
+					if(hoje.getMonth() < nascimento.getMonth())
+					{
+						idade--
+					}
+					else if(hoje.getMonth() === nascimento.getMonth() && hoje.getDate() < nascimento.getDate())
+					{
+						idade--
+					}
+					
+					//TAREFA 2: COLOCAR UMA MENSAGEM NA DIV "SAIDA"
+					
+					//cria uma mensagem com o nome e a idade
+					let mensagem = 'Ola, ' + pessoa.nome + '!'
+					mensagem += '<br>Voce tem ' + idade + ' anos.'
+					mensagem += '<br>Seu signo é ' + pessoa.signo + '.'
+					
+					if(pessoa.contrario !== null)
+					{
+						mensagem += '<br>Seu nome ao contrario é ' + pessoa.contrario + '.'
+					}
+										
+					//cria um span
+					let meuSpan = document.createElement("span")
+					
+					//coloca a mensagem no span
+					meuSpan.innerHTML = mensagem
+					
+					//pega div "saida"
+					let saida = document.getElementById('saida')
+					
+					//limpa div "saida"
+					while(saida.firstChild)
+					{
+						saida.removeChild(saida.firstChild);
+					}
+					
+					//insere o span na div "saida"
+					document.getElementById('saida').append(meuSpan)
+					
+					//TAREFA 3: COM BASE NO SIGNO DA PESSOA
+					//          FAZER UM POST NO ENDPOINT https://aztro.sameerkumar.website?day=today&sign={{signo}}
+					//          NO PACOTE RETORNADO IRA INFORMAR COM QUAL SIGNO A PESSOA EH COMPATIVEL
+					//          DAR APPEND DE MAIS UM SPAN COM UMA MENSAGEM INFORMANDO COM QUAL SIGNO A PESSOA EH COMPATIVEL
+					
+					//TODO
+				})
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COUNTRY</title>
+</head>
+<body>
+    <h1>Pais de origem</h1>
+
+    País de origem <input type="text" name="txt1" id="txt1">
+    <input type="button" value="verificar" onclick="registrar()">
+
+    <div id="res"> </div>
+
+    <script>
+        function registrar(){
+        var país = document.querySelector('input#txt1').value.toUpperCase()
+        var res = document.querySelector('div#res')
+        res.innerHTML = (`Seu país de origem é: <strong> ${país}</strong>. `)
+        if (país == 'BRASIL') {
+            res.innerHTML  += `Você é brasileiro!`
+        } else {
+            res.innerHTML += `Você é estrageiro!`
+        }
+        }
+    </script>
+    
+</body>
+</html>

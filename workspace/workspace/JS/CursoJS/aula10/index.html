@@ -1,0 +1,245 @@
+<!--
+	Curitiba, Novembro de 2022
+	Universidade Positivo
+	Desenvolvimento de Software Visual
+	Prof Jean Diogo
+	
+	PROVA 2
+	
+	Analise o codigo abaixo e implemente a funcao "cadastrar" conforme as instrucoes comentadas no interior dela
+	Voce pode adicionar codigo javascript a vontade, mas nao deve mexer no html e no css
+	Por favor avise o professor caso algum dos links informados nao esteja funcionando
+	
+	A prova deve ser submetida no blackboard ate o final da aula
+	Apenas este arquivo precisa ser submetido (mas se quiser submeter mais arquivos favor compactar tudo)
+	
+	A prova eh indivual, presencial e deve ser realizada dentro do horario da aula
+	Voce pode realizar a prova no seu proprio computador ou em um dos computadores da sala
+	Eh permitida consulta a internet e ao material de aula, mas nao eh permitida comunicacao com colegas nem uso de celular
+	Plagio e cola implicarao na anulacao da nota dos alunos e alunas envolvidos
+	Voce pode sair para ir ao banheiro ou a cantina, mas caso algum ou alguma colega ja tenha ido, espere ele ou ela voltar
+	
+	A interpretacao do codigo faz parte da avaliacao, mas caso tenha algum problema levante a mao que o professor ira ateh sua carteira
+	Nao desanime se nao souber fazer tudo, as questoes serao parcialmente pontuadas conforme o que voce conseguir fazer
+	Boa prova!
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Prova 2 de Programação Visual</title>
+		<style>
+			* {
+				font-family: "Verdana", sans-serif;
+			}
+			.form {
+				border-radius: 4px;
+				box-shadow: 0 0 1px 0;
+				margin: 20px;
+				max-width: 400px;
+				padding: 20px 20px 0 20px;
+
+			}
+			.form * {
+				border: 0;
+				border-radius: 4px;
+				font-size: 16px;
+				margin-bottom: 20px;
+				outline: 0;
+				padding: 20px;
+				width: 100%;
+			}
+			.form button {
+				background: #4d4ddd;
+				color: #ffffff;
+				cursor: pointer;
+			}
+			.form button:active {
+				background: #0066cc;
+			}
+			.form img {
+				padding: 0;
+			}
+			.form input {
+				background: #e0e0e0;
+				box-sizing: border-box;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="display:flex;">
+			<div class="form">
+				<input id="nome" placeholder="Nome Completo" type="text" onblur="validaNome(this.id)"/>
+				<input id="nascimento" type="date" onblur="validaData(this.id)"/>
+				<select id="genero"onblur="validaGenero(this.id)">
+					<option disabled selected value="vazio">Gênero</option>
+					<option value="feminino">Feminino</option>
+					<option value="masculino">Masculino</option>
+					<option value="nao-binario">Não-binário</option>
+				</select>
+				<button onclick="cadastrar()">Cadastrar</button>
+			</div>
+			<div id="resposta" class="form"></div>
+		</div>
+		<script>                        
+            //(0.1) verificar se foi informado pelo menos um nome e um sobrenome || FUNCIONANDO!!!!!!!!!!!!!!!!
+			function validaNome(id) 
+			{
+				let divNome = document.getElementById(id)
+				
+					if(divNome.value.trim().split(' ').length >= 2)
+					{
+						divNome.style.border = 0
+						divNome.classList.remove('erro-input')
+						return true
+					}
+					else
+					{
+						divNome.style.border = 'solid 1px red'
+						if(!divNome.classList.contains('erro-input'))
+						{
+							divNome.classList.add('erro-input')
+						}
+					return false
+				}
+			}
+            //(0.1) verificar se foi selecionada uma data || FUNCIONANDO!!!!!!!!!!!!!!!!
+			function validaData(id)
+			{
+				let nascimento = document.getElementById(id)
+				if(nascimento.value.length > 0)
+				{
+                    nascimento.style.border = 'solid 1px blue'
+					nascimento.style.border = 0
+					nascimento.classList.remove('erro-input')
+					return true
+				}
+				else
+				{
+					nascimento.style.border = 'solid 1px red'
+					if(!nascimento.classList.contains('erro-input'))
+					{
+						nascimento.classList.add('erro-input')
+					}
+					return false
+				}
+			}
+            //(0.1) verificar se foi selecionado um genero || FUNCIONANDO!!!!!!!!!!!!!!!!
+            function validaGenero(id)
+            {
+                let genero = document.getElementById(id)
+
+                if(genero.value != 'vazio')
+                {
+                    genero.style.border = 0
+                    genero.classList.remove('erro-input')
+                    return true
+                }
+                else
+                {
+                    genero.style.border = 'solid 1px red'
+                if(!genero.classList.contains('erro-input'))
+                {
+                    genero.classList.add('erro-input')
+                }
+                        return false
+                }
+
+            }
+			
+            function cadastrar()
+			{
+				if(!validaNome('nome'))
+				{
+					alert('Nome não foi preenchido corretamente')
+					return                    
+				}
+				
+				if(!validaData('nascimento'))
+				{
+					alert('Data não foi preenchido corretamente')
+					return
+				}				
+				if(!validaGenero('genero'))
+				{
+					alert('Genero não foi preenchido corretamente')
+					return
+				}
+                    // (0.2) usar a flexao de genero apropriada (a/o/e) || FUNCIONANDO!!!!!!!!!!!!!!!!
+                    // (0.2) mencionar apenas o primeiro nome da pessoa || FUNCIONANDO!!!!!!!!!!!!!!!!
+					// (0.5) informar a idade da pessoa
+                    // https://gist.github.com/awmpietro/ca69a9360c8e66a241cf
+					// (0.5) informar o numero de consoantes que o nome completo dela possui
+                    // https://pt.stackoverflow.com/questions/420662/definir-se-a-letra-%C3%A9-vogal-ou-consoante
+                else
+                {   
+                   var nome = document.getElementById('nome').value
+                   var genero = document.getElementById('genero').value
+
+                   n = nome.split(' ')[0]
+                    
+                   if(genero == 'feminino')
+                   {
+                    alert(`A ${n} `)
+                   }
+                   else if (genero == 'masculino') {
+                    alert(`O ${n} `)
+                   } 
+                   else {
+                    alert(`E ${n} `)
+                   }     					
+				}
+
+
+
+
+
+
+
+
+
+
+
+				/*
+					INSTRUCOES // 2.4
+					
+					primeiramente voce deve:
+					
+					(0.1) verificar se foi informado pelo menos um nome e um sobrenome   //ok
+					(0.1) verificar se foi selecionada uma data     //ok
+					(0.1) verificar se foi selecionado um genero   //???
+					
+					caso algum campo nao tenha sido preenchido
+					
+					(0.3) exibir um alerta informando todos os campos que nao foram preenchidos e interromper cadastro ???
+					
+					caso contrario, exibir um alerta com um texto de boas vindas. o texto deve:
+					
+			 		(0.2) usar a flexao de genero apropriada (a/o/e)
+					(0.2) mencionar apenas o primeiro nome da pessoa
+					(0.5) informar a idade da pessoa
+					(0.5) informar o numero de consoantes que o nome completo dela possui
+					   
+					      por exemplo
+                          se os dados forem "Luiz da Silva", "masculino" e "1945-10-27"
+					      o texto deve ser "Bem vindo, Luiz! Você tem 77 anos e seu nome completo possui 6 consoantes."
+					
+					em seguida voce deve inserir na div "resposta" os seguintes elementos:
+					
+					(1.4) um heading contendo o nome do ultimo feriado ocorrido
+					      o nome do feriado deve ser extraido do json retornado atraves de um get em https://date.nager.at/api/v3/PublicHolidays/2022/BR
+					      a data de referencia deve ser o dia em que o usuario esta acessando o site
+					      
+					(0.2) abaixo do heading, uma image do animal do dia
+					      a url da imagem deve ser extraida do json retornado atraves de um get em https://zoo-animal-api.herokuapp.com/animals/rand
+					
+					(0.4) abaixo da image, um span contendo uma frase motivacional
+					      a frase deve ser extraida do json retornado atraves de um get em https://api.adviceslip.com/advice
+					      a frase deve ser colocada em estilo italico
+				*/
+			}
+		</script>
+	</body>
+</html>

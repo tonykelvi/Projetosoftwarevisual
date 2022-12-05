@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treinando</title>
+    <style>
+        body{
+            font: normal 22pt;
+            font-family: Verdana, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <script>
+
+        var nome = window.prompt('Informe o seu nome: ')
+        var profissão = window.prompt('Informe a sua profissão: ')
+        var salário = Number(window.prompt('Informe o seu salário: '))
+        var gastos = Number(window.prompt('Informe o seus gastos: '))
+
+        var ganhos = salário - gastos
+
+        ganhos.toLocaleString('pt-BR', {style:'currency', currency: 'BRL'})
+        document.write(`${nome.toUpperCase()} TRABALHA COMO ${profissão.toUpperCase()}.
+        <br>SEU SALÁRIO É ${salário.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}
+         E SEUS GASTOS SOMAM ${gastos.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}.
+        <br>SOBROU NO FINAL DO MÊS ${ganhos.toLocaleString('pt-BR', {style:'currency', currency:'BRL'})}`)
+    </script>
+    
+</body>
+</html>
