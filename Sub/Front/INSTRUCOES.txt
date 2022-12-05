@@ -1,0 +1,31 @@
+INSTRUCOES
+
+(1) abra o console e digite:
+
+	dotnet new webapi --name Sub
+
+(2) copie o arquivo "Pessoa.cs" para a pasta "Sub"
+
+(3) copie o arquivo "PessoaController.cs" para a pasta "Controllers" (que fica dentro da pasta "Sub")
+
+(4) substitua o arquivo "Program.cs" da pasta "Sub" pelo arquivo "Program.cs" aqui presente
+
+(5) entre pelo terminal na pasta "Sub" e depois digite o comando:
+
+	dotnet watch run
+
+(6) abra o arquivo "index.html" no navegador e use o console do navegador para observar caso erros ocorram
+
+(7) sua primeira tarefa eh estudar o javascript que esta no "index.html" e o c# que esta no arquivo "PessoaController.cs" e entender como o seguinte processo de comunicacao entre front e back:
+
+no frontend, a funcao "submit" pega os dados do formulario da pessoa e a partir dele eh construido o json da pessoa
+esse json eh enviado via post para o endpoint "/Pessoa" que esta sendo mapeado pelo backend
+
+no backend, o json chega ja como um objeto da classe pessoa
+a funcao que trata o post altera um certo atributo da pessoa e retorna essa pessoa para o frontend
+
+novamente no frontend, no ultimo "then" da funcao fetch, a pessoa modificada retorna ja como um json
+com base nesse json a funcao constroi um span para colocar uma mensagem sobre a pessoa
+
+(8) sua segunda tarefa eh completar os TODO presentes nos arquivos "index.html" e "PessoaController.cs"
+

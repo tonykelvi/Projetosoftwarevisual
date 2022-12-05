@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treinando DOM</title>
+    <style>
+        body{
+            background-color: black;
+            color: brown;
+            font: normal 18pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Estudando DOM</h1>
+    <p>Aque vai o resultado</p>
+    <p>Apredendo a usar o  <strong>DOM</strong> em <b>JS</b> </p>
+    <div id = 'ide'>Pelo Id</div>
+    <div name = 'nome'>Pelo nome</div>
+    <div class = 'classe'>Pela classe</div>
+    <h1 id = 'msg'>Utilizando o querySelector</h1>
+    <div id="msg">Alterando com id</div>
+    <div class="msg">Alterando com classe</div>
+    <div name="msg">Alterando com nome</div>
+
+
+    <script>
+
+    var corpo = window.document.body
+    corpo.style.background = 'beige'
+
+    var a = document.getElementsByTagName('h1')[0]
+    a.style.color = 'purple'
+     
+     var b = document.getElementById('ide')
+     b.style.color = 'Red'
+
+     var c = document.getElementsByName('nome')[0]
+     c.style.color = 'green'
+     
+     var d = document.getElementsByClassName('classe')[0]
+     d.style.color = 'blue'
+
+     var e = document.querySelector('h1#msg')
+     e.style.color = 'grey'
+
+     var f = document.querySelector('div#msg')
+     f.style.color = 'orange'
+
+     var f = document.querySelector('div.msg')
+     f.style.color = 'green'
+
+     var g = document.querySelector('[name = "msg"]')
+     g.style.color = 'red'
+
+    </script>
+    
+</body>
+</html>

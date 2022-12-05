@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "MR5fSl+O4VDLGL1+0CQqe/qHz6tZO9UZNS1+Oa8pctKsugMXdH6mTEyTaCKcxr/5ynK48PD/6i/t9+tvkJnpjA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\tonya\\OneDrive\\Documentos\\Sub\\Sub.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tonya\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\tonya\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\tonya\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\tonya\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\tonya\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\tonya\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
